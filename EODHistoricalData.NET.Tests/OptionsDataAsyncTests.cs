@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 namespace EODHistoricalData.NET.Tests
 {
     [TestClass]
+    [Ignore("No License for this service")]
     public class OptionsDataAsyncTests
     {
         [TestMethod]

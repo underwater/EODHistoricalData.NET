@@ -1,78 +1,80 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Threading.Tasks;
 
 namespace EODHistoricalData.NET.Tests
 {
     [TestClass]
+    [Ignore("No License for this service")]
     public class OptionsDataTests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void options_null_list_throws_exception()
+        public async Task options_null_list_throws_exception()
         {
-            using var client = new EODHistoricalDataClient(Consts.ApiToken);
-            var options = client.GetOptions(null, null, null);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken);
+            var options = await client.GetOptionsAsync(null, null, null);
         }
 
         [TestMethod]
-        public void options_valid_symbols_returns_prices()
+        public async Task options_valid_symbols_returns_prices()
         {
-            using var client = new EODHistoricalDataClient(Consts.ApiToken, true);
-            var options = client.GetOptions(Consts.TestSymbol, null, null);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            var options = await client.GetOptionsAsync(Consts.TestSymbol, null, null);
             Assert.IsNotNull(options);
             Assert.IsTrue(options.Data.Count > 0);
         }
 
         [TestMethod]
-        public void valid_symbol_split_with_from_date_returns_result()
+        public async Task valid_symbol_split_with_from_date_returns_result()
         {
-            using var client = new EODHistoricalDataClient(Consts.ApiToken, true);
-            var options = client.GetOptions(Consts.TestSymbol, Consts.OptionsStartDate, null);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            var options = await client.GetOptionsAsync(Consts.TestSymbol, Consts.OptionsStartDate, null);
             Assert.IsNotNull(options);
             Assert.IsTrue(options.Data.Count > 0);
         }
 
         [TestMethod]
-        public void valid_symbol_split_with_to_date_returns_result()
+        public async Task valid_symbol_split_with_to_date_returns_result()
         {
-            using var client = new EODHistoricalDataClient(Consts.ApiToken, true);
-            var options = client.GetOptions(Consts.TestSymbol, null, Consts.OptionsEndDate);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            var options = await client.GetOptionsAsync(Consts.TestSymbol, null, Consts.OptionsEndDate);
             Assert.IsNotNull(options);
             Assert.IsTrue(options.Data.Count > 0);
         }
 
         [TestMethod]
-        public void valid_symbol_split_with_from_and_to_date_returns_result()
+        public async Task valid_symbol_split_with_from_and_to_date_returns_result()
         {
-            using var client = new EODHistoricalDataClient(Consts.ApiToken, true);
-            var options = client.GetOptions(Consts.TestSymbol, Consts.OptionsStartDate, Consts.OptionsEndDate);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            var options = await client.GetOptionsAsync(Consts.TestSymbol, Consts.OptionsStartDate, Consts.OptionsEndDate);
             Assert.IsNotNull(options);
             Assert.IsTrue(options.Data.Count > 0);
         }
 
         [TestMethod]
-        public void valid_symbol_split_with_from_and_to_date_and_tradestartdate_returns_result()
+        public async Task valid_symbol_split_with_from_and_to_date_and_tradestartdate_returns_result()
         {
-            using var client = new EODHistoricalDataClient(Consts.ApiToken, true);
-            var options = client.GetOptions(Consts.TestSymbol, Consts.OptionsStartDate, Consts.OptionsEndDate, Consts.OptionsTradeStartDate);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            var options = await client.GetOptionsAsync(Consts.TestSymbol, Consts.OptionsStartDate, Consts.OptionsEndDate, Consts.OptionsTradeStartDate);
             Assert.IsNotNull(options);
             Assert.IsTrue(options.Data.Count > 0);
         }
 
         [TestMethod]
-        public void valid_symbol_split_with_from_and_to_date_and_tradesenddate_returns_result()
+        public async Task valid_symbol_split_with_from_and_to_date_and_tradesenddate_returns_result()
         {
-            using var client = new EODHistoricalDataClient(Consts.ApiToken, true);
-            var options = client.GetOptions(Consts.TestSymbol, Consts.OptionsStartDate, Consts.OptionsEndDate, null, Consts.OptionsTradeEndDate);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            var options = await client.GetOptionsAsync(Consts.TestSymbol, Consts.OptionsStartDate, Consts.OptionsEndDate, null, Consts.OptionsTradeEndDate);
             Assert.IsNotNull(options);
             Assert.IsTrue(options.Data.Count > 0);
         }
 
         [TestMethod]
-        public void valid_symbol_split_with_from_and_to_date_and_both_tradedate_returns_result()
+        public async Task valid_symbol_split_with_from_and_to_date_and_both_tradedate_returns_result()
         {
-            using var client = new EODHistoricalDataClient(Consts.ApiToken, true);
-            var options = client.GetOptions(Consts.TestSymbol, Consts.OptionsStartDate, Consts.OptionsEndDate, Consts.OptionsTradeStartDate, Consts.OptionsTradeEndDate);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            var options = await client.GetOptionsAsync(Consts.TestSymbol, Consts.OptionsStartDate, Consts.OptionsEndDate, Consts.OptionsTradeStartDate, Consts.OptionsTradeEndDate);
             Assert.IsNotNull(options);
             Assert.IsTrue(options.Data.Count > 0);
         }
