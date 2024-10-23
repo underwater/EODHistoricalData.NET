@@ -6,15 +6,15 @@
 //
 //    var indexComposition = IndexComposition.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
 
     using System.Globalization;
-    using EODHistoricalData.NET.BusinessObjects;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using PortfolioValue.EODHistorical.BusinessObjects;
 
     public partial class IndexComposition
     {
@@ -45,12 +45,12 @@ namespace EODHistoricalData.NET
     
     public partial class IndexComposition
     {
-        public static IndexComposition FromJson(string json) => JsonConvert.DeserializeObject<IndexComposition>(json, EODHistoricalData.NET.ConverterIndexComposition.Settings);
+        public static IndexComposition FromJson(string json) => JsonConvert.DeserializeObject<IndexComposition>(json, PortfolioValue.EODHistorical.ConverterIndexComposition.Settings);
     }
 
     public static class SerializeIndexComposition
     {
-        public static string ToJson(this IndexComposition self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterIndexComposition.Settings);
+        public static string ToJson(this IndexComposition self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterIndexComposition.Settings);
     }
 
     internal static class ConverterIndexComposition

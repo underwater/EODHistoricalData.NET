@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET.Tests
+namespace PortfolioValue.EODHistorical.Tests
 {
     [TestClass]
     public class CalendarDataTests

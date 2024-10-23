@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EODHistoricalData.NET.Tests
+namespace PortfolioValue.EODHistorical.Tests
 {
     internal static class Consts
     {

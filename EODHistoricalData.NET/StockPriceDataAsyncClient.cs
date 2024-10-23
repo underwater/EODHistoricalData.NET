@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class StockPriceDataAsyncClient : HttpApiAsyncClient
     {
@@ -26,13 +26,15 @@ namespace EODHistoricalData.NET
             return HistoricalPrice.GetListFromJson(await response.Content.ReadAsStringAsync()) ?? new List<HistoricalPrice>();
         }
 
-        internal Task<List<HistoricalIntradayPrice>> GetHistoricalIntradayPricesAsync(string symbol, string interval, DateTime startDate, DateTime endDate) {
+        internal Task<List<HistoricalIntradayPrice>> GetHistoricalIntradayPricesAsync(string symbol, string interval, DateTime startDate, DateTime endDate)
+        {
             long startTimestamp = ((DateTimeOffset)startDate).ToUnixTimeSeconds();
             long endTimestamp = ((DateTimeOffset)endDate).ToUnixTimeSeconds();
             return ExecuteQueryAsync(string.Format(HistoricalIntradayDataUrl, symbol, _apiToken, startTimestamp, endTimestamp, interval), GetHistoricalIntradayPricesFromResponseAsync);
         }
 
-        private async Task<List<HistoricalIntradayPrice>> GetHistoricalIntradayPricesFromResponseAsync(HttpResponseMessage response) {
+        private async Task<List<HistoricalIntradayPrice>> GetHistoricalIntradayPricesFromResponseAsync(HttpResponseMessage response)
+        {
             return HistoricalIntradayPrice.GetListFromJson(await response.Content.ReadAsStringAsync()) ?? new List<HistoricalIntradayPrice>();
         }
 

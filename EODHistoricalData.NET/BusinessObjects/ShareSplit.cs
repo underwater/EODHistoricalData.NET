@@ -6,7 +6,7 @@
 //
 //    var shareSplit = ShareSplit.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace EODHistoricalData.NET
     {
         public static List<ShareSplit> FromJson(string json)
         {
-            List<ShareSplit> splits = JsonConvert.DeserializeObject<List<ShareSplit>>(json, EODHistoricalData.NET.ConverterShareSplit.Settings);
+            List<ShareSplit> splits = JsonConvert.DeserializeObject<List<ShareSplit>>(json, PortfolioValue.EODHistorical.ConverterShareSplit.Settings);
             foreach (ShareSplit split in splits)
             {
                 string[] factors = split.Split.Split('/');
@@ -47,7 +47,7 @@ namespace EODHistoricalData.NET
 
     public static class SerializeShareSplit
     {
-        public static string ToJson(this List<ShareSplit> self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterShareSplit.Settings);
+        public static string ToJson(this List<ShareSplit> self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterShareSplit.Settings);
     }
 
     internal static class ConverterShareSplit

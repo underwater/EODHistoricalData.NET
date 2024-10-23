@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal static class Utils
     {
@@ -30,7 +30,7 @@ namespace EODHistoricalData.NET
         internal static string GetDateParameterAsString(DateTime? date, string dateField = "date")
         {
             if (date.HasValue)
-              return $"&{dateField}={date.Value.ToString(EODHistoricalDataClient.DateFormat)}";
+                return $"&{dateField}={date.Value.ToString(EODHistoricalDataClient.DateFormat)}";
 
             return string.Empty;
         }

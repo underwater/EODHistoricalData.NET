@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET.Tests
+namespace PortfolioValue.EODHistorical.Tests
 {
     [TestClass]
     public class StockPriceDataAsyncTests
@@ -19,7 +19,7 @@ namespace EODHistoricalData.NET.Tests
         [TestMethod]
         public async Task historical_valid_symbols_returns_prices_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
             var prices = await client.GetHistoricalPricesAsync(Consts.TestSymbol, null, null);
             Assert.IsTrue(prices.Count > 0);
         }
@@ -27,7 +27,7 @@ namespace EODHistoricalData.NET.Tests
         [TestMethod]
         public async Task historical_valid_symbols_with_from_date_returns_prices_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
             var prices = await client.GetHistoricalPricesAsync(Consts.TestSymbol, Consts.StartDate, null);
             var minDate = prices.Min(x => x.Date).Date;
             Assert.IsTrue(minDate == Consts.StartDate);
@@ -36,7 +36,7 @@ namespace EODHistoricalData.NET.Tests
         [TestMethod]
         public async Task historical_valid_symbols_with_to_date_returns_prices_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
             var prices = await client.GetHistoricalPricesAsync(Consts.TestSymbol, null, Consts.EndDate);
             var maxDate = prices.Max(x => x.Date).Date;
             Assert.IsTrue(maxDate == Consts.EndDate);
@@ -45,7 +45,7 @@ namespace EODHistoricalData.NET.Tests
         [TestMethod]
         public async Task historical_valid_symbols_with_from_and_to_date_returns_prices_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
             var prices = await client.GetHistoricalPricesAsync(Consts.TestSymbol, Consts.StartDate, Consts.EndDate);
             var minDate = prices.Min(x => x.Date).Date;
             var maxDate = prices.Max(x => x.Date).Date;
@@ -56,7 +56,7 @@ namespace EODHistoricalData.NET.Tests
         [TestMethod]
         public async Task historical_valid_symbols_null_data_returns_prices_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
             var prices = await client.GetHistoricalPricesAsync(Consts.TestSymbolNullData, null, null);
             Assert.IsTrue(prices.Count > 0);
         }
@@ -66,7 +66,7 @@ namespace EODHistoricalData.NET.Tests
         {
             await Assert.ThrowsExceptionAsync<System.Net.Http.HttpRequestException>(async () =>
             {
-                using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+                using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
                 var prices = await client.GetHistoricalPricesAsync(Consts.TestSymbolReturnsEmpty, null, null);
             });
         }
@@ -83,7 +83,7 @@ namespace EODHistoricalData.NET.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task realtime_null_list_throws_exception_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken);
             var prices = await client.GetRealTimePricesAsync(null);
         }
 
@@ -91,7 +91,7 @@ namespace EODHistoricalData.NET.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task realtime_null_symbol_throws_exception_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken);
             var prices = await client.GetRealTimePriceAsync(null);
         }
 
@@ -99,7 +99,7 @@ namespace EODHistoricalData.NET.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task realtime_empty_list_throws_exception_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken);
             var prices = await client.GetRealTimePricesAsync(new string[] { });
         }
 
@@ -107,14 +107,14 @@ namespace EODHistoricalData.NET.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public async Task realtime_list_with_null_element_throws_exception_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken);
             var prices = await client.GetRealTimePricesAsync(new string[] { null });
         }
 
         [TestMethod]
         public async Task realtime_multiple_valid_symbols_return_result_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
             var prices = await client.GetRealTimePricesAsync(Consts.MultipleTestSymbol);
             Assert.IsNotNull(prices);
             Assert.IsTrue(prices.Count == Consts.MultipleTestSymbol.Length);
@@ -123,7 +123,7 @@ namespace EODHistoricalData.NET.Tests
         [TestMethod]
         public async Task realtime_valid_symbol_return_result_async()
         {
-            using var  client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
+            using var client = new EODHistoricalDataAsyncClient(Consts.ApiToken, true);
             var price = await client.GetRealTimePriceAsync(Consts.TestSymbol);
             Assert.IsNotNull(price);
         }

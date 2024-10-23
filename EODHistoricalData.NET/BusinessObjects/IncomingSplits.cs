@@ -6,7 +6,7 @@
 //
 //    var incomingSplits = IncomingSplits.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
@@ -55,12 +55,12 @@ namespace EODHistoricalData.NET
 
     public partial class IncomingSplits
     {
-        public static IncomingSplits FromJson(string json) => JsonConvert.DeserializeObject<IncomingSplits>(json, EODHistoricalData.NET.ConverterIncomingSplits.Settings);
+        public static IncomingSplits FromJson(string json) => JsonConvert.DeserializeObject<IncomingSplits>(json, PortfolioValue.EODHistorical.ConverterIncomingSplits.Settings);
     }
 
     public static class SerializeIncomingSplits
     {
-        public static string ToJson(this IncomingSplits self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterIncomingSplits.Settings);
+        public static string ToJson(this IncomingSplits self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterIncomingSplits.Settings);
     }
 
     internal static class ConverterIncomingSplits

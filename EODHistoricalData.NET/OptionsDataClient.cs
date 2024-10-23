@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class OptionsDataClient : HttpApiClient
     {

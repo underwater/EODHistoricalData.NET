@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET.Tests
+namespace PortfolioValue.EODHistorical.Tests
 {
     [TestClass]
     [Ignore("No License for this service")]

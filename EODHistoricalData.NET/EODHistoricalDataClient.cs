@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     [Obsolete("This Class is Deprecated, please use EODHistoricalDataAsyncClient instead.", false)]
     public class EODHistoricalDataClient : AuthentifiedClient, IDisposable
@@ -101,7 +100,7 @@ namespace EODHistoricalData.NET
 
             return _optionsClient.GetOptions(symbol, startDate, endDate);
         }
-        
+
         [Obsolete("This Method is Deprecated, please use GetEarningsAsync instead.", false)]
         public Earnings GetEarnings(DateTime? startDate = null, DateTime? endDate = null, string[] symbols = null)
         {
@@ -110,7 +109,7 @@ namespace EODHistoricalData.NET
 
             return _calenderClient.GetEarnings(startDate, endDate, symbols);
         }
-        
+
         [Obsolete("This Method is Deprecated, please use EODHistoricalDataAsyncClient.GetIposAsync instead.", false)]
         public Ipos GetIpos(DateTime? startDate = null, DateTime? endDate = null, string[] symbols = null)
         {
@@ -134,7 +133,7 @@ namespace EODHistoricalData.NET
         {
             return GetFundamentalStock((new[] { symbol }).ToList()).FirstOrDefault();
         }
-        
+
         [Obsolete("This Method is Deprecated, please use GetFundamentalStockAsync instead.", false)]
         public IList<FundamentalStock> GetFundamentalStock(IList<string> symbols)
         {
@@ -143,7 +142,7 @@ namespace EODHistoricalData.NET
 
             return symbols.Select(x => _fundamentalDataClient.GetFundamentalStock(x)).ToList();
         }
-        
+
         /// <summary>
         /// To get an access to bulk fundamentals API,
         /// you should subscribe to ‘Extended Fundamentals’ package,
@@ -177,7 +176,7 @@ namespace EODHistoricalData.NET
 
             return _fundamentalDataClient.GetFundamentalFund(symbol);
         }
-        
+
         [Obsolete("This Method is Deprecated, please use GetFundamentalETFAsync instead.", false)]
         public FundamentalETF GetFundamentalETF(string symbol)
         {
@@ -186,7 +185,7 @@ namespace EODHistoricalData.NET
 
             return _fundamentalDataClient.GetFundamentalETF(symbol);
         }
-        
+
         [Obsolete("This Method is Deprecated, please use GetIndexCompositionAsync instead.", false)]
         public IndexComposition GetIndexComposition(string symbol)
         {
@@ -195,7 +194,7 @@ namespace EODHistoricalData.NET
 
             return _fundamentalDataClient.GetIndexComposition(symbol);
         }
-        
+
         [Obsolete("This Method is Deprecated, please use GetExchangeInstrumentsAsync instead.", false)]
         public List<Instrument> GetExchangeInstruments(string exchangeCode)
         {
@@ -204,7 +203,7 @@ namespace EODHistoricalData.NET
 
             return _fundamentalDataClient.GetExchangeInstruments(exchangeCode);
         }
-        
+
         [Obsolete("This Method is Deprecated, please use GetExchangeListAsync instead.", false)]
         public List<Exchange> GetExchangeList()
         {

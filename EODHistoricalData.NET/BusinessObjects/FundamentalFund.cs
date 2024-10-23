@@ -6,15 +6,15 @@
 //
 //    var fundamentalFund = FundamentalFund.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
 
     using System.Globalization;
-    using EODHistoricalData.NET.BusinessObjects;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using PortfolioValue.EODHistorical.BusinessObjects;
 
     public partial class FundamentalFund
     {
@@ -213,12 +213,12 @@ namespace EODHistoricalData.NET
 
     public partial class FundamentalFund
     {
-        public static FundamentalFund FromJson(string json) => JsonConvert.DeserializeObject<FundamentalFund>(json, EODHistoricalData.NET.ConverterFundamentalFund.Settings);
+        public static FundamentalFund FromJson(string json) => JsonConvert.DeserializeObject<FundamentalFund>(json, PortfolioValue.EODHistorical.ConverterFundamentalFund.Settings);
     }
 
     public static class SerializeFundamentalFund
     {
-        public static string ToJson(this FundamentalFund self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterFundamentalFund.Settings);
+        public static string ToJson(this FundamentalFund self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterFundamentalFund.Settings);
     }
 
     internal static class ConverterFundamentalFund

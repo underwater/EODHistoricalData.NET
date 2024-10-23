@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     public class NullConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
-            return (objectType == typeof(double)) || (objectType == typeof(long));
+            return objectType == typeof(double) || objectType == typeof(long);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)

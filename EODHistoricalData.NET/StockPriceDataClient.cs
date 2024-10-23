@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class StockPriceDataClient : HttpApiClient
     {

@@ -6,7 +6,7 @@
 //
 //    var historicalIntradayPrice = HistoricalIntradayPrice.FromJson(jsonString);
 
-namespace EODHistoricalData.NET {
+namespace PortfolioValue.EODHistorical {
   using System;
   using System.Collections.Generic;
 
@@ -41,12 +41,12 @@ namespace EODHistoricalData.NET {
   }
 
   public partial class HistoricalIntradayPrice {
-    public static List<HistoricalIntradayPrice> FromJson(string json) => JsonConvert.DeserializeObject<List<HistoricalIntradayPrice>>(json, EODHistoricalData.NET.Converter.Settings);
-    public static List<HistoricalIntradayPrice> GetListFromJson(string json) => JsonConvert.DeserializeObject<List<HistoricalIntradayPrice>>(json, EODHistoricalData.NET.ConverterHistoricalPrice.Settings);
+    public static List<HistoricalIntradayPrice> FromJson(string json) => JsonConvert.DeserializeObject<List<HistoricalIntradayPrice>>(json, PortfolioValue.EODHistorical.Converter.Settings);
+    public static List<HistoricalIntradayPrice> GetListFromJson(string json) => JsonConvert.DeserializeObject<List<HistoricalIntradayPrice>>(json, PortfolioValue.EODHistorical.ConverterHistoricalPrice.Settings);
   }
 
   public static class SerializeHistoricalIntradayPrice {
-    public static string ToJson(this List<HistoricalIntradayPrice> self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.Converter.Settings);
+    public static string ToJson(this List<HistoricalIntradayPrice> self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.Converter.Settings);
   }
 
   internal static class ConverterHistoricalIntradayPrice {

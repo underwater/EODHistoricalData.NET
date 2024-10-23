@@ -1,4 +1,4 @@
-﻿namespace EODHistoricalData.NET
+﻿namespace PortfolioValue.EODHistorical
 {
     public abstract class AuthentifiedClient
     {

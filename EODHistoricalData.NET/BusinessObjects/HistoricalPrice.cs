@@ -2,11 +2,11 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using EODHistoricalData.NET;
+//    using PortfolioValue.EODHistorical;
 //
 //    var historicalData = HistoricalData.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
@@ -40,15 +40,15 @@ namespace EODHistoricalData.NET
 
     public partial class HistoricalPrice
     {
-        public static HistoricalPrice FromJson(string json) => JsonConvert.DeserializeObject<HistoricalPrice>(json, EODHistoricalData.NET.ConverterHistoricalPrice.Settings);
+        public static HistoricalPrice FromJson(string json) => JsonConvert.DeserializeObject<HistoricalPrice>(json, PortfolioValue.EODHistorical.ConverterHistoricalPrice.Settings);
 
-        public static List<HistoricalPrice> GetListFromJson(string json) => JsonConvert.DeserializeObject<List<HistoricalPrice>>(json, EODHistoricalData.NET.ConverterHistoricalPrice.Settings);
+        public static List<HistoricalPrice> GetListFromJson(string json) => JsonConvert.DeserializeObject<List<HistoricalPrice>>(json, PortfolioValue.EODHistorical.ConverterHistoricalPrice.Settings);
 
     }
 
     public static class SerializeHistoricalPrice
     {
-        public static string ToJson(this HistoricalPrice self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterHistoricalPrice.Settings);
+        public static string ToJson(this HistoricalPrice self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterHistoricalPrice.Settings);
     }
 
     internal static class ConverterHistoricalPrice

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class ExchangesDataClient : HttpApiClient
     {
         private const string ExchangeListUrl =
             @"https://eodhistoricaldata.com/api/exchanges-list/?api_token={0}&fmt=json";
-        
+
         internal ExchangesDataClient(string apiToken, bool useProxy) : base(apiToken, useProxy) { }
 
         internal List<Exchange> GetExchanges()

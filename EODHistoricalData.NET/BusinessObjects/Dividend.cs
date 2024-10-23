@@ -6,7 +6,7 @@
 //
 //    var dividend = Dividend.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
@@ -44,12 +44,12 @@ namespace EODHistoricalData.NET
 
     public partial class Dividend
     {
-        public static List<Dividend> FromJson(string json) => JsonConvert.DeserializeObject<List<Dividend>>(json, EODHistoricalData.NET.ConverterDividend.Settings);
+        public static List<Dividend> FromJson(string json) => JsonConvert.DeserializeObject<List<Dividend>>(json, PortfolioValue.EODHistorical.ConverterDividend.Settings);
     }
 
     public static class SerializeDividend
     {
-        public static string ToJson(this List<Dividend> self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterDividend.Settings);
+        public static string ToJson(this List<Dividend> self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterDividend.Settings);
     }
 
     internal static class ConverterDividend

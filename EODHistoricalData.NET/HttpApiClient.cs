@@ -3,7 +3,7 @@ using System;
 using System.Net;
 using System.Net.Http;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class HttpApiClient : AuthentifiedClient, IDisposable
     {

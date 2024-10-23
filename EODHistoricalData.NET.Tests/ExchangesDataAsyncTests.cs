@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET.Tests
+namespace PortfolioValue.EODHistorical.Tests
 {
     [TestClass]
     public class ExchangesDataAsyncTests

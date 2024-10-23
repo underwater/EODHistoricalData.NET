@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     public class EODHistoricalDataAsyncClient : AuthentifiedClient, IDisposable
     {
@@ -45,7 +45,8 @@ namespace EODHistoricalData.NET
         /// <returns>Historical intray prices for specified parameters</returns>
         /// <exception cref="ArgumentNullException">Will be thrown when invalid parameters are passed</exception>
         /// <exception cref="Exception">Will be thrown when invalid parameters are passed</exception>
-        public Task<List<HistoricalIntradayPrice>> GetHistoricalIntradayPricesAsync(string symbol, string interval, DateTime startDate, DateTime endDate) {
+        public Task<List<HistoricalIntradayPrice>> GetHistoricalIntradayPricesAsync(string symbol, string interval, DateTime startDate, DateTime endDate)
+        {
             if (symbol == null)
                 throw new ArgumentNullException("Symbol is null, cannot query prices.");
             if (startDate.Kind != DateTimeKind.Utc)
@@ -130,7 +131,7 @@ namespace EODHistoricalData.NET
 
             return _calendarDataAsyncClient.GetEarningsAsync(startDate, endDate, symbols);
         }
-        
+
         public Task<Ipos> GetIposAsync(DateTime? startDate = null, DateTime? endDate = null, string[] symbols = null)
         {
             if (_calendarDataAsyncClient == null)
@@ -152,7 +153,7 @@ namespace EODHistoricalData.NET
             var results = await GetFundamentalStockAsync((new[] { symbol }).ToList());
             return results.FirstOrDefault();
         }
-        
+
         public async Task<IList<FundamentalStock>> GetFundamentalStockAsync(IList<string> symbols)
         {
             if (_fundamentalDataAsyncClient == null)
@@ -163,10 +164,10 @@ namespace EODHistoricalData.NET
             {
                 list.Add(await _fundamentalDataAsyncClient.GetFundamentalStockAsync(symbol));
             }
-            
+
             return list;
         }
-        
+
         /// <summary>
         /// To get an access to bulk fundamentals API,
         /// you should subscribe to ‘Extended Fundamentals’ package,
@@ -191,7 +192,7 @@ namespace EODHistoricalData.NET
             var results = await _fundamentalDataAsyncClient.GetBulkFundamentalsStocksAsync(exchange, offset, limit);
             return results?.Values;
         }
-        
+
         public Task<FundamentalFund> GetFundamentalFundAsync(string symbol)
         {
             if (_fundamentalDataAsyncClient == null)
@@ -215,7 +216,7 @@ namespace EODHistoricalData.NET
 
             return _fundamentalDataAsyncClient.GetIndexCompositionAsync(symbol);
         }
-        
+
         public Task<List<Instrument>> GetExchangeInstrumentsAsync(string exchangeCode)
         {
             if (_fundamentalDataAsyncClient == null)
@@ -223,7 +224,7 @@ namespace EODHistoricalData.NET
 
             return _fundamentalDataAsyncClient.GetExchangeInstrumentsAsync(exchangeCode);
         }
-        
+
         public Task<List<Exchange>> GetExchangeListAsync()
         {
             if (_exchangesDataAsyncClient == null)
@@ -309,7 +310,7 @@ namespace EODHistoricalData.NET
 
             return _searchAsyncClient.SearchAsync(isin);
         }
-        
+
         public void Dispose()
         {
             _stockPriceDataAsyncClient?.Dispose();

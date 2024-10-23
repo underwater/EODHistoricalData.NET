@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET.Tests
+namespace PortfolioValue.EODHistorical.Tests
 {
     [TestClass]
     public class FundamentalDataAsyncTests
@@ -29,7 +29,7 @@ namespace EODHistoricalData.NET.Tests
             var fundamental = await client.GetFundamentalFundAsync(Consts.TestFund);
             Assert.IsNotNull(fundamental);
         }
-        
+
         [TestMethod]
         public async Task index_composition_returns_data_async()
         {
@@ -37,7 +37,7 @@ namespace EODHistoricalData.NET.Tests
             var index = await client.GetIndexCompositionAsync(Consts.TestIndex);
             Assert.IsNotNull(index);
         }
-        
+
         [TestMethod]
         public async Task exchange_instruments_returns_data_async()
         {

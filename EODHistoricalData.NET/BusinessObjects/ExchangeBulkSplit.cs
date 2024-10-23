@@ -6,7 +6,7 @@
 //
 //    var exchangeBulkSplit = ExchangeBulkSplit.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
@@ -32,12 +32,12 @@ namespace EODHistoricalData.NET
 
     public partial class ExchangeBulkSplit
     {
-        public static List<ExchangeBulkSplit> FromJson(string json) => JsonConvert.DeserializeObject<List<ExchangeBulkSplit>>(json, EODHistoricalData.NET.ExchangeBulkSplitConverter.Settings);
+        public static List<ExchangeBulkSplit> FromJson(string json) => JsonConvert.DeserializeObject<List<ExchangeBulkSplit>>(json, PortfolioValue.EODHistorical.ExchangeBulkSplitConverter.Settings);
     }
 
     public static class ExchangeBulkSplitSerialize
     {
-        public static string ToJson(this List<ExchangeBulkSplit> self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ExchangeBulkSplitConverter.Settings);
+        public static string ToJson(this List<ExchangeBulkSplit> self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ExchangeBulkSplitConverter.Settings);
     }
 
     internal static class ExchangeBulkSplitConverter

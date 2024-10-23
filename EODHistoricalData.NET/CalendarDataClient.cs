@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Text;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class CalendarDataClient : HttpApiClient
     {
@@ -32,7 +32,7 @@ namespace EODHistoricalData.NET
         {
             return Earnings.FromJson(response.Content.ReadAsStringAsync().Result);
         }
-        
+
         internal Ipos GetIpos(DateTime? startDate = null, DateTime? endDate = null, string[] symbols = null)
         {
             var sb = HandleParameters(startDate, endDate, symbols);

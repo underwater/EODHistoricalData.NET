@@ -6,7 +6,7 @@
 //
 //    var ipos = Ipos.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
@@ -76,12 +76,12 @@ namespace EODHistoricalData.NET
 
     public partial class Ipos
     {
-        public static Ipos FromJson(string json) => JsonConvert.DeserializeObject<Ipos>(json, EODHistoricalData.NET.ConverterIpos.Settings);
+        public static Ipos FromJson(string json) => JsonConvert.DeserializeObject<Ipos>(json, PortfolioValue.EODHistorical.ConverterIpos.Settings);
     }
 
     public static class SerializeIpos
     {
-        public static string ToJson(this Ipos self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterIpos.Settings);
+        public static string ToJson(this Ipos self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterIpos.Settings);
     }
 
     internal static class ConverterIpos

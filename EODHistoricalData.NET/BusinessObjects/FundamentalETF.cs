@@ -2,19 +2,19 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using EODHistoricalData.NET;
+//    using PortfolioValue.EODHistorical;
 //
 //    var fundamentalEtFs = FundamentalEtFs.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
 
     using System.Globalization;
-    using EODHistoricalData.NET.BusinessObjects;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using PortfolioValue.EODHistorical.BusinessObjects;
 
     public partial class FundamentalETF
     {
@@ -270,12 +270,12 @@ namespace EODHistoricalData.NET
     
     public partial class FundamentalETF
     {
-        public static FundamentalETF FromJson(string json) => JsonConvert.DeserializeObject<FundamentalETF>(json, EODHistoricalData.NET.ConverterFundamentalETF.Settings);
+        public static FundamentalETF FromJson(string json) => JsonConvert.DeserializeObject<FundamentalETF>(json, PortfolioValue.EODHistorical.ConverterFundamentalETF.Settings);
     }
 
     public static class SerializeFundamentalETF
     {
-        public static string ToJson(this FundamentalETF self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterFundamentalETF.Settings);
+        public static string ToJson(this FundamentalETF self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterFundamentalETF.Settings);
     }
 
     internal static class ConverterFundamentalETF

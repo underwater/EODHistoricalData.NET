@@ -1,10 +1,9 @@
-﻿using EODHistoricalData.NET.BusinessObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class ExchangesDataAsyncClient : HttpApiAsyncClient
     {
@@ -15,7 +14,7 @@ namespace EODHistoricalData.NET
         private const string ExchangeBulkSplitsUrl = @"https://eodhistoricaldata.com/api/eod-bulk-last-day/{0}?api_token={1}&type=splits&fmt=json{2}{3}";
 
         internal ExchangesDataAsyncClient(string apiToken, bool useProxy) : base(apiToken, useProxy) { }
-        
+
         internal Task<List<Exchange>> GetExchangesAsync()
         {
             return ExecuteQueryAsync(string.Format(ExchangeListUrl, _apiToken), GetExchangesFromResponseAsync);
@@ -75,7 +74,8 @@ namespace EODHistoricalData.NET
 
         private string GetSymbolsQueryParameter(string[] symbols)
         {
-            if (symbols.Length > 0) {
+            if (symbols.Length > 0)
+            {
                 var joinedSymbols = string.Join(",", symbols);
                 return $"&symbols={joinedSymbols}";
             }

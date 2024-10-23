@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class CalendarDataAsyncClient : HttpApiAsyncClient
     {
@@ -28,12 +28,12 @@ namespace EODHistoricalData.NET
             var sb = HandleParameters(startDate, endDate, symbols);
             return ExecuteQueryAsync(string.Format(EarningsUrl, _apiToken, sb), GetEarningsFromResponseAsync);
         }
-        
+
         private async Task<Earnings> GetEarningsFromResponseAsync(HttpResponseMessage response)
         {
             return Earnings.FromJson(await response.Content.ReadAsStringAsync());
         }
-        
+
         internal Task<Ipos> GetIposAsync(DateTime? startDate = null, DateTime? endDate = null, string[] symbols = null)
         {
             var sb = HandleParameters(startDate, endDate, symbols);

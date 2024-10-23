@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class SplitDividendClient : HttpApiClient
     {

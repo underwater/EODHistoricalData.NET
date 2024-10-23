@@ -6,7 +6,7 @@
 //
 //    var options = Options.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
@@ -152,7 +152,7 @@ namespace EODHistoricalData.NET
 
         public static Options FromJson(string json)
         {
-            Options result = JsonConvert.DeserializeObject<Options>(json, EODHistoricalData.NET.Converter.Settings);
+            Options result = JsonConvert.DeserializeObject<Options>(json, PortfolioValue.EODHistorical.Converter.Settings);
             foreach (Datum datum in result.Data)
             {
                 SetLastTradeDatime(datum.Options.Call);
@@ -164,7 +164,7 @@ namespace EODHistoricalData.NET
 
     public static class Serialize
     {
-        public static string ToJson(this Options self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.Converter.Settings);
+        public static string ToJson(this Options self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.Converter.Settings);
     }
 
     internal static class Converter

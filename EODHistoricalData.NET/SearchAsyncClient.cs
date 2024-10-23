@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class SearchAsyncClient : HttpApiAsyncClient
     {
@@ -14,7 +14,7 @@ namespace EODHistoricalData.NET
         {
             return ExecuteQueryAsync(string.Format(SearchUrl, isin, _apiToken), SearchAsync);
         }
-        
+
         private async Task<List<SearchInstrument>> SearchAsync(HttpResponseMessage response)
         {
             return SearchInstrument.FromJson(await response.Content.ReadAsStringAsync());

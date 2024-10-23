@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35417.141 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EODHistoricalData.NET", "EODHistoricalData.NET\EODHistoricalData.NET.csproj", "{0804D2EB-28CB-4EBB-A122-97FF90F59FA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioValue.EODHistorical", "EODHistoricalData.NET\PortfolioValue.EODHistorical.csproj", "{0804D2EB-28CB-4EBB-A122-97FF90F59FA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EODHistoricalData.NET.Tests", "EODHistoricalData.NET.Tests\EODHistoricalData.NET.Tests.csproj", "{46DCF578-AF53-4705-A75A-6443FFA8A62C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortfolioValue.EODHistorical.Tests", "EODHistoricalData.NET.Tests\PortfolioValue.EODHistorical.Tests.csproj", "{46DCF578-AF53-4705-A75A-6443FFA8A62C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

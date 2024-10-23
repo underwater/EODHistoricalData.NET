@@ -6,7 +6,7 @@
 //
 //    var instrument = Instrument.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     using System;
     using System.Collections.Generic;
@@ -41,12 +41,12 @@ namespace EODHistoricalData.NET
     
     public partial class Instrument
     {
-        public static List<Instrument> FromJson(string json) => JsonConvert.DeserializeObject<List<Instrument>>(json, EODHistoricalData.NET.ConverterInstrument.Settings);
+        public static List<Instrument> FromJson(string json) => JsonConvert.DeserializeObject<List<Instrument>>(json, PortfolioValue.EODHistorical.ConverterInstrument.Settings);
     }
 
     public static class SerializeInstrument
     {
-        public static string ToJson(this List<Instrument> self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterInstrument.Settings);
+        public static string ToJson(this List<Instrument> self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterInstrument.Settings);
     }
 
     internal static class ConverterInstrument

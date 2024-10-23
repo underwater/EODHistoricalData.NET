@@ -6,11 +6,11 @@
 //
 //    var fundamentalStock = FundamentalStock.FromJson(jsonString);
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
-    using EODHistoricalData.NET.BusinessObjects;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using PortfolioValue.EODHistorical.BusinessObjects;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
@@ -487,13 +487,13 @@ namespace EODHistoricalData.NET
         public static FundamentalStock FromJson(string json)
         {
             json = json.Replace("\"0000-00-00\"", "null");
-            return JsonConvert.DeserializeObject<FundamentalStock>(json, EODHistoricalData.NET.ConverterFundamentalStock.Settings);
+            return JsonConvert.DeserializeObject<FundamentalStock>(json, PortfolioValue.EODHistorical.ConverterFundamentalStock.Settings);
         }
     }
 
     public static class SerializeFundamentalStock
     {
-        public static string ToJson(this FundamentalStock self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ConverterFundamentalStock.Settings);
+        public static string ToJson(this FundamentalStock self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ConverterFundamentalStock.Settings);
     }
 
     internal static class ConverterFundamentalStock

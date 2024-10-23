@@ -2,11 +2,11 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using EODHistoricalData.NET.BusinessObjects;
+//    using PortfolioValue.EODHistorical.BusinessObjects;
 //
 //    var exchangeDetails = ExchangeDetails.FromJson(jsonString);
 
-namespace EODHistoricalData.NET {
+namespace PortfolioValue.EODHistorical {
   using System;
   using System.Collections.Generic;
 
@@ -83,11 +83,11 @@ namespace EODHistoricalData.NET {
   public enum TypeEnum { Official, Bank };
 
   public partial class ExchangeDetails {
-    public static ExchangeDetails FromJson(string json) => JsonConvert.DeserializeObject<ExchangeDetails>(json, EODHistoricalData.NET.ExchangeDetailsConverter.Settings);
+    public static ExchangeDetails FromJson(string json) => JsonConvert.DeserializeObject<ExchangeDetails>(json, PortfolioValue.EODHistorical.ExchangeDetailsConverter.Settings);
   }
 
   public static class ExchangeDetailsSerialize {
-    public static string ToJson(this ExchangeDetails self) => JsonConvert.SerializeObject(self, EODHistoricalData.NET.ExchangeDetailsConverter.Settings);
+    public static string ToJson(this ExchangeDetails self) => JsonConvert.SerializeObject(self, PortfolioValue.EODHistorical.ExchangeDetailsConverter.Settings);
   }
 
   internal static class ExchangeDetailsConverter {

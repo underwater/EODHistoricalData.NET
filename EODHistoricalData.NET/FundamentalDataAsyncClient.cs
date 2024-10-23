@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace EODHistoricalData.NET
+namespace PortfolioValue.EODHistorical
 {
     internal class FundamentalDataAsyncClient : HttpApiAsyncClient
     {
@@ -16,7 +16,7 @@ namespace EODHistoricalData.NET
         {
             return ExecuteQueryAsync(string.Format(FundamentalUrl, symbol, _apiToken), GetFundamentalStockFromResponseAsync);
         }
-        
+
         private async Task<FundamentalStock> GetFundamentalStockFromResponseAsync(HttpResponseMessage response)
         {
             return FundamentalStock.FromJson(await response.Content.ReadAsStringAsync());
@@ -29,7 +29,7 @@ namespace EODHistoricalData.NET
             limit = limit > 500
                 ? 500
                 : limit;
-            
+
             return ExecuteQueryAsync(string.Format(BulkFundamentalUrl, exchange, _apiToken, offset, limit), GetBulkFundamentalStocksFromResponseAsync);
         }
 
@@ -37,7 +37,7 @@ namespace EODHistoricalData.NET
         {
             return BulkFundamentalStocks.FromJson(await response.Content.ReadAsStringAsync());
         }
-        
+
         internal Task<FundamentalETF> GetFundamentalETFAsync(string symbol)
         {
             return ExecuteQueryAsync(string.Format(FundamentalUrl, symbol, _apiToken), GetFundamentalETFFromResponseAsync);
@@ -67,7 +67,7 @@ namespace EODHistoricalData.NET
         {
             return IndexComposition.FromJson(await response.Content.ReadAsStringAsync());
         }
-        
+
         internal Task<List<Instrument>> GetExchangeInstrumentsAsync(string exchangeCode)
         {
             return ExecuteQueryAsync(string.Format(ExchangeUrl, exchangeCode, _apiToken), GetExchangeInstrumentsFromResponseAsync);

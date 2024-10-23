@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace EODHistoricalData.NET.Tests
+namespace PortfolioValue.EODHistorical.Tests
 {
     [TestClass]
     public class CalendarDataAsyncTests
@@ -16,7 +16,7 @@ namespace EODHistoricalData.NET.Tests
             Assert.IsNotNull(earnings);
             Assert.IsTrue(earnings.EarningsData.Count > 0);
         }
-        
+
         [TestMethod]
         public async Task earnings_with_from_date_returns_result_async()
         {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace EODHistoricalData.NET.Tests
+namespace PortfolioValue.EODHistorical.Tests
 {
     [TestClass]
     public class FundamentalDataTests
@@ -12,7 +12,7 @@ namespace EODHistoricalData.NET.Tests
             var fundamental = client.GetFundamentalStockAsync(Consts.TestSymbol);
             Assert.IsNotNull(fundamental);
         }
-        
+
         [TestMethod]
         public void fundamental_etf_returns_data()
         {
@@ -36,7 +36,7 @@ namespace EODHistoricalData.NET.Tests
             var index = client.GetIndexCompositionAsync(Consts.TestIndex);
             Assert.IsNotNull(index);
         }
-        
+
         [TestMethod]
         public void exchange_instruments_returns_data()
         {
